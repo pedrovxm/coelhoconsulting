@@ -1,31 +1,33 @@
 export default async function handler(req, res) {
   const origin = req.headers.origin;
-
-  // Permite domínios fixos (produção e local)
   const allowedOrigins = [
     "https://coelhoconsulting.vercel.app",
     "http://localhost:3000"
   ];
 
-  // Adicionalmente, permite qualquer subdomínio *.vercel.app
+  let allowOrigin = "";
+
+  // Permite subdomínios .vercel.app
   if (
     origin &&
     (allowedOrigins.includes(origin) ||
      /\.vercel\.app$/.test(new URL(origin).hostname))
   ) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
+    allowOrigin = origin;
   }
 
+  // 🔹 Sempre define os headers CORS, mesmo para OPTIONS
+  res.setHeader("Access-Control-Allow-Origin", allowOrigin || "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  // Preflight request (CORS)
+  // 🔹 Se for preflight, responde e encerra imediatamente
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  // Lógica principal da API
+  // 🔹 Lógica principal da API
   if (req.method === "POST") {
     try {
       const response = await fetch(
