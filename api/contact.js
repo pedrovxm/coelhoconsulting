@@ -1,8 +1,7 @@
 export default async function handler(req, res) {
   const allowedOrigins = [
-    "https://coelhoconsulting-r3mjtn10p-pedros-projects-a382e0f3.vercel.app", // frontend atual
-    "https://coelhoconsulting.vercel.app", // domínio principal, caso use depois
-    "http://localhost:3000" // útil para testes locais
+    "https://coelhoconsulting.vercel.app",
+  "http://localhost:3000"
   ];
 
   const origin = req.headers.origin;
