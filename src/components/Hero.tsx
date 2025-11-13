@@ -56,7 +56,7 @@ const Hero = () => {
               asChild
             >
               <a 
-                href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20consultoria%20em%20BI" 
+                href="https://wa.me/5531993939411?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20consultoria%20em%20BI" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
