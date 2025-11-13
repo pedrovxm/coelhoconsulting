@@ -74,4 +74,8 @@ To connect a domain, navigate to Project > Settings > Domains and click Connect 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
 =======
 # coelhoconsulting
+<<<<<<< HEAD
 >>>>>>> 06c673319d5ca5b639f3fed832fa5596f532731f
+=======
+>>>>>>> 06c6733 (Initial commit)
+>>>>>>> 0f0d38d (ajusta server.js e CORS seguro para Verce)
