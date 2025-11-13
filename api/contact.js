@@ -5,9 +5,8 @@ export default async function handler(req, res) {
     "http://localhost:3000"
   ];
 
+  // Detecta se o domínio é válido (fixo ou subdomínio da vercel)
   let allowOrigin = "";
-
-  // Permite subdomínios .vercel.app
   if (
     origin &&
     (allowedOrigins.includes(origin) ||
@@ -16,18 +15,18 @@ export default async function handler(req, res) {
     allowOrigin = origin;
   }
 
-  // 🔹 Sempre define os headers CORS, mesmo para OPTIONS
+  // 🔹 Define SEMPRE os headers CORS antes de qualquer resposta
   res.setHeader("Access-Control-Allow-Origin", allowOrigin || "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  // 🔹 Se for preflight, responde e encerra imediatamente
+  // 🔹 Responde o preflight imediatamente
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  // 🔹 Lógica principal da API
+  // 🔹 Lógica da API
   if (req.method === "POST") {
     try {
       const response = await fetch(
@@ -40,16 +39,13 @@ export default async function handler(req, res) {
       );
 
       const text = await response.text();
-      return res
-        .status(200)
-        .json({ success: true, message: "Dados enviados com sucesso!" });
+      return res.status(200).json({ success: true, message: "Dados enviados com sucesso!" });
     } catch (err) {
       console.error(err);
-      return res
-        .status(500)
-        .json({ success: false, message: "Erro ao enviar dados." });
+      return res.status(500).json({ success: false, message: "Erro ao enviar dados." });
     }
   }
 
+  // 🔹 Se o método for outro
   return res.status(405).json({ message: "Método não permitido" });
 }
