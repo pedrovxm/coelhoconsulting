@@ -1,12 +1,18 @@
 export default async function handler(req, res) {
-  const allowedOrigins = [
-    "https://coelhoconsulting.vercel.app",
-  "http://localhost:3000"
-  ];
-
   const origin = req.headers.origin;
 
-  if (allowedOrigins.includes(origin)) {
+  // Permite domínios fixos (produção e local)
+  const allowedOrigins = [
+    "https://coelhoconsulting.vercel.app",
+    "http://localhost:3000"
+  ];
+
+  // Adicionalmente, permite qualquer subdomínio *.vercel.app
+  if (
+    origin &&
+    (allowedOrigins.includes(origin) ||
+     /\.vercel\.app$/.test(new URL(origin).hostname))
+  ) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
 
@@ -32,10 +38,14 @@ export default async function handler(req, res) {
       );
 
       const text = await response.text();
-      return res.status(200).json({ success: true, message: "Dados enviados com sucesso!" });
+      return res
+        .status(200)
+        .json({ success: true, message: "Dados enviados com sucesso!" });
     } catch (err) {
       console.error(err);
-      return res.status(500).json({ success: false, message: "Erro ao enviar dados." });
+      return res
+        .status(500)
+        .json({ success: false, message: "Erro ao enviar dados." });
     }
   }
 
