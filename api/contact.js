@@ -1,29 +1,32 @@
-import express from "express";
-import fetch from "node-fetch";
-import cors from "cors";
+export default async function handler(req, res) {
+  const allowedOrigins = [
+    "https://coelhoconsulting-n97ccd6rm-pedros-projects-a382e0f3.vercel.app", // seu front-end
+    "https://coelhoconsulting.vercel.app" // domínio principal (opcional)
+  ];
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+  const origin = req.headers.origin;
 
-app.post("/api/contact", async (req, res) => {
-  try {
-    const response = await fetch(
-      process.env.GOOGLE_SCRIPT_URL,
-      {
-        method: "POST",
-        body: JSON.stringify(req.body),
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-
-    const text = await response.text();
-    res.json({ success: true, message: "Dados enviados com sucesso!" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ success: false, message: "Erro ao enviar dados." });
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
   }
-});
 
-// Em vez de listen, exporte o handler padrão
-export default app;
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+
+  // Preflight request
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  // Aqui vem a lógica da sua API
+  if (req.method === "POST") {
+    const body = req.body;
+    console.log("Dados recebidos:", body);
+
+    // Exemplo de resposta:
+    return res.status(200).json({ message: "Requisição recebida com sucesso!" });
+  }
+
+  return res.status(405).json({ message: "Método não permitido" });
+}
