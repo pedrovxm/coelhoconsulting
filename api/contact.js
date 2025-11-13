@@ -1,7 +1,8 @@
 export default async function handler(req, res) {
   const allowedOrigins = [
-    "https://coelhoconsulting-n97ccd6rm-pedros-projects-a382e0f3.vercel.app", // seu front-end
-    "https://coelhoconsulting.vercel.app" // domínio principal (opcional)
+    "https://coelhoconsulting-r3mjtn10p-pedros-projects-a382e0f3.vercel.app", // frontend atual
+    "https://coelhoconsulting.vercel.app", // domínio principal, caso use depois
+    "http://localhost:3000" // útil para testes locais
   ];
 
   const origin = req.headers.origin;
@@ -14,18 +15,29 @@ export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  // Preflight request
+  // Preflight request (CORS)
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
-  // Aqui vem a lógica da sua API
+  // Lógica principal da API
   if (req.method === "POST") {
-    const body = req.body;
-    console.log("Dados recebidos:", body);
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycby_l0NfBr40EIDT51tkHs-JNhuyMOZHJUP0V1jasztGGuigdnFjwMpYcKgfEx7r0Pqf/exec",
+        {
+          method: "POST",
+          body: JSON.stringify(req.body),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
 
-    // Exemplo de resposta:
-    return res.status(200).json({ message: "Requisição recebida com sucesso!" });
+      const text = await response.text();
+      return res.status(200).json({ success: true, message: "Dados enviados com sucesso!" });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ success: false, message: "Erro ao enviar dados." });
+    }
   }
 
   return res.status(405).json({ message: "Método não permitido" });
