@@ -33,7 +33,7 @@ const Process = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Como Funciona o Processo
+            Como funciona o processo
           </h2>
           <div className="w-20 h-1 bg-gradient-accent mx-auto mb-6" />
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

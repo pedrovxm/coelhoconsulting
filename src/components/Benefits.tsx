@@ -3,12 +3,12 @@ import { TrendingUp, Clock, Target, Zap, Shield, Workflow } from "lucide-react";
 const benefits = [
   {
     icon: TrendingUp,
-    title: "+ Eficiência",
+    title: "Mais Eficiência",
     description: "Decisões mais rápidas e assertivas com dados sempre atualizados"
   },
   {
     icon: Clock,
-    title: "- Retrabalho",
+    title: "Menos Retrabalho",
     description: "Automatize processos manuais e elimine tarefas repetitivas"
   },
   {
@@ -45,7 +45,7 @@ const Benefits = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Por Que Escolher a Coelho Consulting?
+            Por que escolher a ROCO Systems?
           </h2>
           <div className="w-20 h-1 bg-secondary mx-auto mb-6" />
           <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
@@ -68,6 +68,7 @@ const Benefits = () => {
           ))}
         </div>
 
+        {/*
         <div className="mt-16 text-center">
           <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-8 max-w-3xl mx-auto">
             <p className="text-2xl font-semibold mb-2">
@@ -77,7 +78,7 @@ const Benefits = () => {
               Transformo informação em clareza e clareza em resultados mensuráveis para o seu negócio.
             </p>
           </div>
-        </div>
+        </div>  */}
       </div>
     </section>
   );

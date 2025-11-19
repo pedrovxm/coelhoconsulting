@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold mb-2">Coelho Consulting</h3>
+            <h3 className="text-2xl font-bold mb-2">ROCO Systems</h3>
             <p className="text-primary-foreground/80">
               Transformando dados em decisões inteligentes
             </p>
@@ -44,7 +44,7 @@ const Footer = () => {
 
           <div className="border-t border-primary-foreground/20 pt-8">
             <p className="text-center text-sm text-primary-foreground/60">
-              © {new Date().getFullYear()} Coelho Consulting - Business Intelligence & Automação
+              © {new Date().getFullYear()} ROCO Systems - Business Intelligence & Automação
             </p>
             <p className="text-center text-sm text-primary-foreground/60 mt-2">
               Todos os direitos reservados

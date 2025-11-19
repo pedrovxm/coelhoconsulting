@@ -11,9 +11,9 @@ const Hero = () => {
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroBg} 
-          alt="Business Intelligence Background" 
+        <img
+          src={heroBg}
+          alt="Business Intelligence Background"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-primary opacity-90" />
@@ -26,41 +26,45 @@ const Hero = () => {
             Transforme seus dados em
             <span className="block text-secondary"> decisões inteligentes</span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-2xl mx-auto">
-            Consultoria estratégica em Business Intelligence, Automação e Análise de Dados 
+            Consultoria estratégica em Business Intelligence, Automação e Análise de Dados
             para empresas que querem decidir com clareza e crescer com inteligência.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-6 text-lg shadow-strong"
               onClick={scrollToContact}
             >
               Quero meu diagnóstico gratuito
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            
-            <Button 
-              size="lg" 
+
+            <Button
+              size="lg"
               className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 py-6 text-lg font-semibold shadow-medium"
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Conhecer serviços
             </Button>
 
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-[#25D366] hover:bg-[#20BA5A] text-white px-8 py-6 text-lg font-semibold shadow-strong"
               asChild
             >
-              <a 
-                href="https://wa.me/5531993939411?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20consultoria%20em%20BI" 
-                target="_blank" 
+              <a
+                href="https://wa.me/5531993939411?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20consultoria%20em%20BI"
+                target="_blank"
                 rel="noopener noreferrer"
               >
-                <MessageCircle className="mr-2 h-5 w-5" />
+                <img
+                  src="/whatsapp.png"   
+                  alt="Logo"
+                  className="h-7 w-7"
+                />
                 Falar no WhatsApp
               </a>
             </Button>
@@ -69,11 +73,11 @@ const Hero = () => {
           <div className="pt-8 flex flex-wrap justify-center gap-8 text-primary-foreground/80">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-secondary rounded-full" />
-              <span>+ Eficiência</span>
+              <span>Mais Eficiência</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-secondary rounded-full" />
-              <span>- Retrabalho</span>
+              <span>Menos Retrabalho</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-secondary rounded-full" />
@@ -84,7 +88,7 @@ const Hero = () => {
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background/60 to-transparent z-10" />
     </section>
   );
 };

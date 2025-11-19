@@ -7,7 +7,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Sobre a Coelho Consulting
+              Sobre a ROCO Systems
             </h2>
             <div className="w-20 h-1 bg-gradient-accent mx-auto mb-6" />
             <p className="text-xl text-muted-foreground">
@@ -16,22 +16,19 @@ const About = () => {
           </div>
 
           <div className="bg-card rounded-2xl shadow-medium p-8 md:p-12 mb-12">
-            <p className="text-lg text-card-foreground leading-relaxed mb-6">
-              Sou <strong className="text-primary">Israel Coelho</strong>, especialista em Business Intelligence, 
-              Dados e Automação de Processos. Atualmente, atuo como Especialista de BI na Pandorium, 
-              onde ajudo empresas a transformar dados complexos em decisões claras e acionáveis.
-            </p>
-            <p className="text-lg text-card-foreground leading-relaxed mb-6">
-              Minha experiência inclui integração de plataformas como <strong>Shopify, Omie, Google Ads, 
-              GA4 e Meta Ads</strong>, além de desenvolvimento de dashboards estratégicos que impulsionam 
-              resultados reais para e-commerce, marketing e supply chain.
-            </p>
-            <p className="text-lg text-card-foreground leading-relaxed">
-              A <strong className="text-primary">Coelho Consulting</strong> nasceu da vontade de democratizar 
-              o acesso a análises de dados de alta qualidade, oferecendo consultoria personalizada que une 
-              visão estratégica, automação inteligente e experiência prática com operações reais de negócios.
-            </p>
-          </div>
+  <p className="text-lg text-card-foreground leading-relaxed mb-6">
+    Somos a <strong className="text-primary">ROCO Systems</strong>, uma equipe especializada em tecnologia e gestão. Trabalhamos para transformar informações complexas em decisões objetivas e orientadas ao resultado. Contamos com especialistas em Business Intelligence, análise de dados, automação de processos e estratégia operacional.
+  </p>
+
+  <p className="text-lg text-card-foreground leading-relaxed mb-6">
+    Atuamos em integração de plataformas <strong>ERP, CRM, PDV, E-commerces e ferramentas de Web Analytics</strong>, além do desenvolvimento de dashboards estratégicos e automações que potencializam operações de e-commerce, marketing e supply chain. Também criamos soluções sob medida em Python, modelos de previsão, análises de performance e estruturas de dados que aumentam eficiência e reduzem retrabalho.
+  </p>
+
+  <p className="text-lg text-card-foreground leading-relaxed">
+    A <strong className="text-primary">ROCO Systems</strong> surgiu com o propósito de tornar acessível uma consultoria moderna, baseada em dados e focada em resultados reais. Combinamos visão estratégica, tecnologia aplicada e experiência prática em operações para entregar análises sólidas e decisões embasadas que fortalecem empresas de diversos setores.
+  </p>
+</div>
+
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-card rounded-xl shadow-soft p-6 text-center hover:shadow-medium transition-shadow">

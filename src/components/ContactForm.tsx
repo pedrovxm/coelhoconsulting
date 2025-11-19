@@ -61,7 +61,7 @@ const ContactForm = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Comece Sua Transformação Digital
+              Comece sua Transformação Digital
             </h2>
             <div className="w-20 h-1 bg-gradient-accent mx-auto mb-6" />
             <p className="text-xl text-muted-foreground">
